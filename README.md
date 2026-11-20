@@ -5,7 +5,7 @@
 ## 仓库与在线试玩
 
 - GitHub：https://github.com/Raingor/minesweeper
-- GitHub Pages：https://raingor.github.io/minesweeper/ （首次发布与线上验收进行中）
+- GitHub Pages：https://raingor.github.io/minesweeper/ （已上线，线上48项真实浏览器检查通过）
 - main 推送自动执行规则测试、严格类型检查、构建和 Pages 发布。
 
 ## 运行

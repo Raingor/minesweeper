@@ -39,4 +39,11 @@
 - 规则弹窗不暂停实际经过时间；前后台切换后仍按单调时钟计时，终局冻结。
 - 窄屏12×12默认格较小，显式放大后48px以上且仅棋盘内部滚动。
 - 无已知阻塞缺陷；本地验收通过不代表已经GitHub/Pages上线，主Agent负责发布与线上验收。
-- **本任务文件已冻结**。未修改主Agent新增的 `.github/workflows/deploy.yml`，未执行git/commit/push/deploy/memory/Artifact，未派子agent，未写其他目录。
+- 子 Agent 交付后冻结。未修改主Agent新增的 `.github/workflows/deploy.yml`，未执行git/commit/push/deploy/memory/Artifact，未派子agent，未写其他目录。
+
+## 主 Agent 独立验收与Pages发布
+- 独立97单测、严格构建及生产preview 48项浏览器检查通过。
+- 仓库 https://github.com/Raingor/minesweeper ，首次提交 `d2a1ac8`。
+- 工作流 https://github.com/Raingor/minesweeper/actions/runs/44716998217 成功。
+- 站点 https://raingor.github.io/minesweeper/ ，线上48/48检查通过；首击安全、胜败最后一步、手机插旗/揭开、纪录与资源错误检查均正常。
+- 线上报告 `artifacts/smoke-results.json`，无pageerror/console/HTTP错误。
