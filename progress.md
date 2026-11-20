@@ -47,3 +47,27 @@
 - 工作流 https://github.com/Raingor/minesweeper/actions/runs/44716998217 成功。
 - 站点 https://raingor.github.io/minesweeper/ ，线上48/48检查通过；首击安全、胜败最后一步、手机插旗/揭开、纪录与资源错误检查均正常。
 - 线上报告 `artifacts/smoke-results.json`，无pageerror/console/HTTP错误。
+
+## 19位勘探伙伴追加实现（2026-11-20，尚未新版浏览器验收）
+- 接到主 Agent 追加任务，只修改minesweeper；读取xiaoxiaole/src/catalog.ts并精确复制19张头像WebP至public/characters-2d（总682,082字节），未复制全身图、PNG或Three依赖。
+- 新增src/characters.ts与characters.css：复古琥珀「勘探伙伴」证件式头像/人物名，桌面在侧栏，手机位于棋盘外头部；原生details/summary展开19角色网格，不新增dialog或叠盖棋盘。
+- 每个选角按钮有aria-pressed/可访问名字，图片有alt；原生键盘激活、明确focus-visible、选完/Esc收起并回summary，仅在角色模块内处理Escape，不接管游戏键盘。
+- 独立版本化伙伴选择存储，非法id/损坏/不支持版本默认classic；try/catch处理存储访问和配额异常，异常时仍可内存选角并显示提示；扫雷状态与纪录不变。
+- main.ts仅新增模块挂载，不改engine/clock/storage；图片相对路径，无兄弟游戏运行时依赖。
+- 新增src/characters.test.ts共33项；实际执行npm test：4文件、130项全部通过。
+- 实际执行npm run build：tsc+Vite通过；新CSS约18.10kB、JS约18.53kB；独立头像随public复制到dist。
+- 实际执行node --check scripts/characters-smoke.mjs：语法检查通过。
+- 新增scripts/characters-smoke.mjs：独立Chrome上下文、GAME_URL；19图加载/名单/选择/刷新、360px触屏、键盘/焦点/Esc、非法和不可用存储、游戏仍可操作、错误收集、characters-*.png与JSON输出。
+- **依协调指令暂不启动浏览器，本轮没有运行任何浏览器脚本，也没有生成characters截图。** 之前97单测/48浏览器与线上记录均为基础版历史，不是当前追加版线上结果。
+- 本轮未启动/终止任何服务，未git/推送/发布/memory，也未修改根计划或其他项目。追加实现已冻结，主Agent错峰验收后统一发布。
+
+### 主 Agent追加版验收命令
+在本项目目录（确认自己的5176/4176服务可用，生产已构建）：
+```sh
+npm test
+npm run build
+GAME_URL=http://localhost:5176 node scripts/characters-smoke.mjs
+GAME_URL=http://localhost:4176 node scripts/characters-smoke.mjs
+GAME_URL=http://localhost:4176 npm run test:browser
+```
+待生成产物：artifacts/characters-desktop.png、characters-roster-desktop.png、characters-mobile-360.png、characters-roster-mobile-360.png、characters-results.json。

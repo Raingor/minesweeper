@@ -1,0 +1,40 @@
+.crew-host { margin: 0 0 22px; min-width: 0; }
+.crew-selector { width: 100%; border: 1px solid #555c42; border-radius: 8px; background: linear-gradient(120deg, #32392a, #23291f); box-shadow: 0 2px 0 #10150c, inset 0 1px 0 #b0bc7e12; }
+.crew-selector summary { display: flex; align-items: center; gap: 12px; padding: 12px; cursor: pointer; list-style: none; touch-action: manipulation; border-radius: 7px; }
+.crew-selector summary::-webkit-details-marker { display: none; }
+.crew-selector summary:focus-visible { outline: 3px solid #ffe0a2; outline-offset: 4px; }
+.crew-portrait { flex: 0 0 66px; width: 66px; height: 66px; display: grid; place-items: center; position: relative; border: 1px solid #867247; border-radius: 50%; background: radial-gradient(circle at 45% 38%, #68704a, #2a3120 73%); box-shadow: inset 0 0 0 4px #1c2417, 0 0 18px #e9b45f0d; }
+.crew-portrait img { display: block; width: 60px; height: 60px; object-fit: contain; }
+.crew-online { position: absolute; bottom: 1px; right: 3px; width: 8px; height: 8px; border: 2px solid #28301f; border-radius: 50%; background: #edbd70; }
+.crew-copy { min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.crew-copy small { font: 8px/1.5 var(--mono); letter-spacing: .5px; color: #b9b792; }
+.crew-copy strong { font-size: 15px; color: #f4cd8c; line-height: 1.3; font-weight: 600; }
+.crew-copy > span { font-size: 10px; color: #bdc6aa; line-height: 1.6; }
+.crew-change { margin-left: auto; display: flex; gap: 6px; align-items: center; font-size: 10px; color: #e1c590; white-space: nowrap; }
+.crew-chevron { font: 18px/1 var(--mono); transition: transform .15s; }
+.crew-selector[open] .crew-chevron { transform: rotate(180deg); }
+.crew-roster { border-top: 1px solid #535d40; padding: 13px 12px 12px; }
+.crew-roster-head { display: flex; justify-content: space-between; gap: 8px; margin: 0 1px 12px; color: #e8ce9e; font-size: 11px; }
+.crew-roster-head small { color: #afb99b; font: 9px var(--mono); }
+.crew-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 7px; }
+.crew-grid button { display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0; padding: 7px 3px; gap: 5px; border: 1px solid #505c3e; border-radius: 5px; background: #252e1f; color: #c7d0b7; min-height: 88px; }
+.crew-grid button img { width: min(56px, 100%); height: 56px; object-fit: contain; }
+.crew-grid button span { font-size: 10px; line-height: 1.5; overflow-wrap: anywhere; }
+.crew-grid button[aria-pressed='true'] { border-color: #e4b867; background: #4c452a; color: #ffdc9b; box-shadow: inset 0 0 0 1px #e4b867; }
+.crew-save-note { margin: 10px 0 0; color: #e4bf86; font-size: 10px; line-height: 1.7; }
+@media (hover: hover) { .crew-selector summary:hover { background: #40483266; }.crew-grid button:hover { background: #454c32; border-color: #a2a56c; } }
+@media (min-width: 1100px) and (min-height: 800px) {
+  .crew-host { margin: 15px 0 0; }
+  .crew-selector summary { padding: 11px; gap: 10px; flex-wrap: wrap; }
+  .crew-portrait { flex-basis: 62px; width: 62px; height: 62px; }.crew-portrait img { width: 57px; height: 57px; }
+  .crew-copy { flex: 1; }.crew-copy small { font-size: 7px; letter-spacing: .2px; }
+  .crew-copy > span { font-size: 9px; }.crew-change { margin-left: 72px; margin-top: -3px; font-size: 9px; }
+  .crew-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; }.crew-grid button { padding: 5px 2px; min-height: 80px; }.crew-grid button img { height: 46px; width: 46px; }
+  .crew-roster { padding: 10px 8px; }.crew-roster-head { font-size: 10px; }.crew-roster-head small { font-size: 8px; }
+}
+@media (max-width: 620px) {
+  .crew-host { margin: -4px 0 16px; }.crew-selector summary { gap: 9px; padding: 10px; }.crew-portrait { flex-basis: 56px; width: 56px; height: 56px; }.crew-portrait img { width: 51px; height: 51px; }
+  .crew-copy small { font-size: 6.5px; letter-spacing: .15px; }.crew-copy strong { font-size: 13px; }.crew-copy > span { font-size: 9px; }.crew-change { font-size: 9px; gap: 3px; }.crew-copy { gap: 4px; }
+  .crew-roster { padding: 12px 9px; }.crew-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }.crew-grid button { min-height: 86px; }
+}
+@media (prefers-reduced-motion: reduce) { .crew-selector *, .crew-selector *::before, .crew-selector *::after { transition: none !important; animation: none !important; } }
