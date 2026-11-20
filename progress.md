@@ -71,3 +71,9 @@ GAME_URL=http://localhost:4176 node scripts/characters-smoke.mjs
 GAME_URL=http://localhost:4176 npm run test:browser
 ```
 待生成产物：artifacts/characters-desktop.png、characters-roster-desktop.png、characters-mobile-360.png、characters-roster-mobile-360.png、characters-results.json。
+
+## 主Agent人物版发布验收（2026-11-20）
+- 代码提交 `543f37a` 已推送main，Pages工作流 https://github.com/Raingor/minesweeper/actions/runs/44733700219 成功。
+- 主Agent独立单测与生产构建通过；本地与线上均通过 30 项人物检查和 48 项完整玩法回归。
+- 线上地址 https://raingor.github.io/minesweeper/ ，全部19张头像加载、选择与刷新保存、键盘与360px手机、存储异常降级通过；无页面、控制台或HTTP资源错误。
+- 新版已上线，上文子Agent“未启动浏览器/待主Agent发布”仅为历史交接状态；截图和JSON位于忽略的artifacts目录，不提交构建/凭据。

@@ -5,7 +5,7 @@
 ## 仓库与在线试玩
 
 - GitHub：https://github.com/Raingor/minesweeper
-- GitHub Pages：https://raingor.github.io/minesweeper/ （扫雷基础版已上线，线上48项真实浏览器检查通过；下述19角色追加版尚待主 Agent 浏览器验收及发布）
+- GitHub Pages：https://raingor.github.io/minesweeper/ （19角色版已上线，线上30项头像检查及48项完整玩法回归通过；130项单测和严格构建通过）
 - main 推送自动执行规则测试、严格类型检查、构建和 Pages 发布。
 
 ## 运行
@@ -69,7 +69,7 @@ GAME_URL=http://localhost:4176 npm run test:browser
 - `public/characters-2d/`：从原消消乐复制的19张头像 WebP，共682,082字节；无全身图、PNG、Three.js或兄弟目录运行时依赖，图片使用相对路径兼容Pages。
 - 独立 `localStorage` key：`puzzle-minesweeper-character-v1`，保存 `{ version: 1, id }`。非法id/损坏/错误版本安全回到自嘲熊；读写异常仍允许当页选角，并显示保存不可用提示。不改变扫雷纪录key。
 - `src/characters.test.ts`：追加33项单测。当前 `npm test` **130项 / 4文件通过**；`npm run build` 通过。
-- `scripts/characters-smoke.mjs`：独立Chrome验收脚本，覆盖19张加载、选择、刷新持久、非法/损坏/不可用存储、360px、键盘与截图，支持 `GAME_URL`。本轮依协调要求**未启动浏览器，尚未执行新脚本或新版回归**。
+- `scripts/characters-smoke.mjs`：独立Chrome验收脚本，覆盖19张加载、选择、刷新持久、非法/损坏/不可用存储、360px、键盘与截图，支持 `GAME_URL`。子Agent依错峰要求未启动浏览器；随后主Agent独立本地与线上各30项头像及48项玩法检查通过，人物版已发布。
 
 主 Agent 错峰验收命令（在本项目目录，先确认服务可用）：
 
